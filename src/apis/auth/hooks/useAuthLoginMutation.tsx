@@ -3,7 +3,7 @@ import { RestErrorResponse, RestResponse } from "@models/RestResponse";
 import { useMutation } from "@tanstack/react-query";
 import rest from "@utils/rest";
 
-const usePostAuthLogin = () => {
+const useAuthLoginMutation = () => {
   const mutationFn = async (request: AuthLoginRequest) => {
     return await rest.post("/auth/login", request);
   };
@@ -15,4 +15,4 @@ const usePostAuthLogin = () => {
   );
 };
 
-export default usePostAuthLogin;
+export default useAuthLoginMutation;
