@@ -46,12 +46,32 @@ export default tseslint.config(
               position: "after",
             },
             {
-              pattern: "@mui/**",
+              pattern: "react-hook-form",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "@hookform/**",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "zod",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "zustand",
               group: "external",
               position: "after",
             },
             {
               pattern: "@mui/**",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "styled-components",
               group: "external",
               position: "after",
             },
