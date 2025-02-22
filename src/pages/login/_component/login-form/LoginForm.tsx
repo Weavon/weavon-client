@@ -13,8 +13,8 @@ import useAuthLoginMutation from "@apis/auth/hooks/useAuthLoginMutation";
 import LoginFormSchema, {
   LoginFormObject,
 } from "@pages/login/_schema/LoginFormSchema";
-import UsernameController from "@pages/login/_component/controllers/UsernameController";
-import PasswordController from "@pages/login/_component/controllers/PasswordController";
+import UsernameController from "@pages/login/_component/login-form/UsernameController";
+import PasswordController from "@pages/login/_component/login-form/PasswordController";
 
 import useAuthStore from "@stores/useAuthStore";
 

@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
 
-import LoginForm from "@pages/login/_component/forms/LoginForm";
+import LoginForm from "@pages/login/_component/login-form/LoginForm";
 
 const LoginPage = () => {
   const { isLoading, isSuccess } = useAuthValidQuery();
