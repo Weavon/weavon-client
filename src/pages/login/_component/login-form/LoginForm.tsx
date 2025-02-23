@@ -17,11 +17,14 @@ import UsernameController from "@pages/login/_component/login-form/UsernameContr
 import PasswordController from "@pages/login/_component/login-form/PasswordController";
 
 import useAuthStore from "@stores/useAuthStore";
+import useToastStore from "@stores/useToastStore";
 
 const LoginForm = () => {
   const { login } = useAuthStore();
 
   const { mutate: authLoginMutate } = useAuthLoginMutation();
+
+  const { showSuccess, showError } = useToastStore();
 
   const navigate = useNavigate();
 
@@ -33,9 +36,14 @@ const LoginForm = () => {
       },
       {
         onSuccess: (data) => {
+          showSuccess(`Welcome back, ${username}!`);
+
           const authorization = data.headers["authorization"];
           login(authorization.substring(7));
           navigate("/");
+        },
+        onError: () => {
+          showError("Invalid username or password.");
         },
       }
     );
