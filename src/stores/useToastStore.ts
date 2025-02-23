@@ -17,8 +17,8 @@ interface ToastAction {
 type ToastStore = ToastState & ToastAction;
 
 const useToastStore = create<ToastStore>((set) => ({
-  open: true,
-  message: "hello",
+  open: false,
+  message: "",
   type: "success",
   showSuccess: (message) =>
     set({ open: true, message: message, type: "success" }),
