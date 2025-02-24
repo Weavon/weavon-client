@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import LoginPage from "@pages/login/LoginPage";
+import JoinPage from "@pages/join/JoinPage";
 
 import AuthRouter from "@routers/AuthRouter";
 import UnAuthRouter from "@routers/UnAuthRouter";
@@ -12,6 +13,7 @@ const AppRouter = () => (
       <Route element={<CommonRouter />}>
         <Route element={<UnAuthRouter />}>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/join" element={<JoinPage />} />
         </Route>
         <Route element={<AuthRouter />}>
           <Route path="/" />

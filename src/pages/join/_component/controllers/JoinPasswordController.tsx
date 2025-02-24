@@ -4,20 +4,10 @@ import { TextField } from "@mui/material";
 
 import styled from "styled-components";
 
-import LoginFormSchema from "@pages/login/_schema/LoginFormSchema";
+import JoinFormSchema from "@pages/join/_schema/JoinFormSchema";
 
-interface PasswordControllerProps {
-  onEnter: () => void;
-}
-
-const PasswordController = ({ onEnter }: PasswordControllerProps) => {
-  const { control } = useFormContext<LoginFormSchema>();
-
-  const handleEnterKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      onEnter();
-    }
-  };
+const JoinPasswordController = () => {
+  const { control } = useFormContext<JoinFormSchema>();
 
   return (
     <Controller
@@ -28,7 +18,6 @@ const PasswordController = ({ onEnter }: PasswordControllerProps) => {
           type="password"
           placeholder="Password"
           onChange={field.onChange}
-          onKeyDown={handleEnterKeyDown}
           error={!!error}
         />
       )}
@@ -42,4 +31,4 @@ const PasswordInput = styled(TextField)`
   margin: 10px !important;
 `;
 
-export default PasswordController;
+export default JoinPasswordController;

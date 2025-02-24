@@ -13,8 +13,8 @@ import useAuthLoginMutation from "@apis/auth/hooks/useAuthLoginMutation";
 import LoginFormSchema, {
   LoginFormObject,
 } from "@pages/login/_schema/LoginFormSchema";
-import UsernameController from "@pages/login/_component/login-form/UsernameController";
-import PasswordController from "@pages/login/_component/login-form/PasswordController";
+import LoginUsernameController from "@pages/login/_component/controllers/LoginUsernameController";
+import LoginPasswordController from "@pages/login/_component/controllers/LoginPasswordController";
 
 import useAuthStore from "@stores/useAuthStore";
 import useToastStore from "@stores/useToastStore";
@@ -22,9 +22,17 @@ import useToastStore from "@stores/useToastStore";
 const LoginForm = () => {
   const { login } = useAuthStore();
 
+  const { showSuccess, showError } = useToastStore();
+
   const { mutate: authLoginMutate } = useAuthLoginMutation();
 
-  const { showSuccess, showError } = useToastStore();
+  const method = useForm<LoginFormSchema>({
+    resolver: zodResolver(LoginFormObject),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
+  });
 
   const navigate = useNavigate();
 
@@ -49,14 +57,6 @@ const LoginForm = () => {
     );
   };
 
-  const method = useForm<LoginFormSchema>({
-    resolver: zodResolver(LoginFormObject),
-    defaultValues: {
-      username: "",
-      password: "",
-    },
-  });
-
   const handleEnter = () => {
     handleSignIn();
   };
@@ -71,8 +71,8 @@ const LoginForm = () => {
   return (
     <FormProvider {...method}>
       <LoginFormContainer>
-        <UsernameController onEnter={handleEnter} />
-        <PasswordController onEnter={handleEnter} />
+        <LoginUsernameController onEnter={handleEnter} />
+        <LoginPasswordController onEnter={handleEnter} />
         <LoginFormButtonContainer>
           <Button>Sign Up</Button>
           <Button type="submit" onClick={handleSignIn}>
