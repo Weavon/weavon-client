@@ -57,20 +57,24 @@ const LoginForm = () => {
     );
   };
 
+  const submit = method.handleSubmit((data) => {
+    const username = data.username;
+    const password = data.password;
+
+    requestLogin(username, password);
+  });
+
   const handleEnter = () => {
-    handleSignIn();
+    submit();
   };
 
   const handleSignUp = () => {
     navigate("/join");
   };
 
-  const handleSignIn = method.handleSubmit((data) => {
-    const username = data.username;
-    const password = data.password;
-
-    requestLogin(username, password);
-  });
+  const handleSignIn = () => {
+    submit();
+  };
 
   return (
     <FormProvider {...method}>
