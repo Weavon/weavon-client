@@ -51,7 +51,7 @@ const LoginForm = () => {
           navigate("/");
         },
         onError: () => {
-          showError("Invalid username or password.");
+          showError("Invalid username or password. Please try again.");
         },
       }
     );
@@ -66,7 +66,10 @@ const LoginForm = () => {
     },
     (errors) => {
       const error = errors.username || errors.password;
-      showError(error?.message ?? "");
+      showError(
+        error?.message ??
+          "Login has failed. Check your informations and try again."
+      );
     }
   );
 
