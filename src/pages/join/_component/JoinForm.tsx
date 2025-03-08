@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { FormProvider, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -5,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button } from "@mui/material";
 
 import styled from "styled-components";
+
+import useAuthJoinMutation from "@apis/auth/hooks/useAuthJoinMutation.";
 
 import JoinFormSchema, {
   JoinFormObject,
@@ -16,7 +20,9 @@ import JoinPasswordConfirmController from "@pages/join/_component/controllers/Jo
 import useToastStore from "@stores/useToastStore";
 
 const JoinForm = () => {
-  const { showError } = useToastStore();
+  const { showSuccess, showError } = useToastStore();
+
+  const { mutate: authJoinMutate } = useAuthJoinMutation();
 
   const method = useForm<JoinFormSchema>({
     resolver: zodResolver(JoinFormObject),
@@ -27,9 +33,27 @@ const JoinForm = () => {
     },
   });
 
+  const navigate = useNavigate();
+
   const submit = method.handleSubmit(
     (data) => {
-      console.log("data", data);
+      authJoinMutate(
+        {
+          username: data.username,
+          password: data.password,
+        },
+        {
+          onSuccess: (data) => {
+            showSuccess(data.data.value);
+            navigate("/login");
+          },
+          onError: (error) => {
+            showError(
+              error.response?.data.value.message ?? "Joining has failed."
+            );
+          },
+        }
+      );
     },
     (errors) => {
       const error =
