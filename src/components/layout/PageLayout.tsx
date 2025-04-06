@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-import GlobalNavigationBar from "@components/common/GlobalNavigationBar";
-import Header from "@components/common/Header";
+import GlobalNavigationBar from "@components/global/GlobalNavigationBar";
+import Header from "@components/global/Header";
 
 import { Box } from "@mui/material";
 
