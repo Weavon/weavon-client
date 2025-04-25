@@ -1,0 +1,51 @@
+name: Pull Request Actions
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: pnpm install
+
+  prettier-check:
+    name: Prettier Check
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Prettier
+        run: pnpm prettier --check .
+
+  eslint-check:
+    name: Eslint Check
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Eslint
+        run: pnpm eslint .
+
+  build:
+    name: Build
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Build
+        run: pnpm build
