@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
-interface LoadingState {
+type LoadingState = {
   isLoading: boolean;
-}
+};
 
-interface LoadingAction {
+type LoadingAction = {
   setLoading: (isLoading: boolean) => void;
-}
+};
 
 type LoadingStore = LoadingState & LoadingAction;
 
