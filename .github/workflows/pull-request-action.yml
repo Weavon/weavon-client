@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: ${{ env.CACHE_STRATEGY }}
+      - run: pnpm install
       - run: pnpm prettier --check .
 
   eslint-check:
@@ -38,6 +39,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: ${{ env.CACHE_STRATEGY }}
+      - run: pnpm install
       - run: pnpm eslint .
 
   build:
@@ -52,4 +54,5 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: ${{ env.CACHE_STRATEGY }}
+      - run: pnpm install
       - run: pnpm build
