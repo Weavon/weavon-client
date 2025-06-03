@@ -5,13 +5,13 @@ import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
 import rest from "@/service/rest";
 
 const useAuthLoginMutation = () => {
-  const mutationFn = async (request: AuthLoginRequest) => {
-    return await rest.post("/auth/login", request);
+  const authLoginMutation = (request: AuthLoginRequest) => {
+    return rest.post("/auth/login", request);
   };
 
   return useMutation<RestResponse<object>, RestErrorResponse, AuthLoginRequest>(
     {
-      mutationFn,
+      mutationFn: authLoginMutation,
     },
   );
 };

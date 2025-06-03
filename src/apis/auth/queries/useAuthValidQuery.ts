@@ -5,9 +5,7 @@ import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
 import rest from "@/service/rest";
 
 const useAuthValidQuery = () => {
-  const queryFn = async () => {
-    return await rest.get("/auth/valid");
-  };
+  const authValidQuery = () => rest.get("/auth/valid");
 
   return useQuery<
     RestResponse<AuthValidResponse>,
@@ -15,7 +13,7 @@ const useAuthValidQuery = () => {
     AuthValidResponse
   >({
     queryKey: generateQueryKey(),
-    queryFn,
+    queryFn: authValidQuery,
     select: (data) => data.data.value,
   });
 };
