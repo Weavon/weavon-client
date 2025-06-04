@@ -2,7 +2,7 @@ import { styled } from "@mui/material";
 
 import LoginForm from "@/pages/login/_component/LoginForm";
 
-export default function LoginPage() {
+function LoginPage() {
   return (
     <LoginPageContainer>
       <LoginForm />
@@ -18,3 +18,5 @@ const LoginPageContainer = styled("div")`
   width: 100vw;
   height: 100vh;
 `;
+
+export default LoginPage;

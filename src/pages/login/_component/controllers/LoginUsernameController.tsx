@@ -7,9 +7,7 @@ interface UsernameControllerProps {
   onEnter: () => void;
 }
 
-export default function LoginUsernameController({
-  onEnter,
-}: UsernameControllerProps) {
+function LoginUsernameController({ onEnter }: UsernameControllerProps) {
   const { control } = useFormContext<LoginFormSchema>();
 
   const handleEnterKeyDown = (e: React.KeyboardEvent) => {
@@ -38,3 +36,5 @@ export default function LoginUsernameController({
     />
   );
 }
+
+export default LoginUsernameController;

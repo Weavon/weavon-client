@@ -13,7 +13,7 @@ import {
 import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
-export default function LoginForm() {
+function LoginForm() {
   const { showSuccess, showError } = useToastStore();
   const { login, logout } = useAuthStore();
 
@@ -114,3 +114,5 @@ const LoginFormButtonContainer = styled("div")`
   justify-content: flex-end;
   align-items: center;
 `;
+
+export default LoginForm;

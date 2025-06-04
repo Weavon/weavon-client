@@ -2,7 +2,7 @@ import { styled } from "@mui/material";
 
 import JoinForm from "@/pages/join/_component/JoinForm";
 
-export default function JoinPage() {
+function JoinPage() {
   return (
     <JoinPageContainer>
       <JoinForm />
@@ -18,3 +18,5 @@ const JoinPageContainer = styled("div")`
   width: 100vw;
   height: 100vh;
 `;
+
+export default JoinPage;

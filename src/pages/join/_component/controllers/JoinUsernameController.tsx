@@ -3,7 +3,7 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-export default function JoinUsernameController() {
+function JoinUsernameController() {
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -32,3 +32,5 @@ export default function JoinUsernameController() {
     />
   );
 }
+
+export default JoinUsernameController;

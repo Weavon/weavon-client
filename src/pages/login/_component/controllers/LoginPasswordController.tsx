@@ -7,9 +7,7 @@ interface PasswordControllerProps {
   onEnter: () => void;
 }
 
-export default function LoginPasswordController({
-  onEnter,
-}: PasswordControllerProps) {
+function LoginPasswordController({ onEnter }: PasswordControllerProps) {
   const { control } = useFormContext<LoginFormSchema>();
 
   const handleEnterKeyDown = (e: React.KeyboardEvent) => {
@@ -38,3 +36,5 @@ export default function LoginPasswordController({
     />
   );
 }
+
+export default LoginPasswordController;

@@ -13,7 +13,7 @@ import {
 } from "@/pages/join/_schema/JoinFormSchema";
 import useToastStore from "@/stores/useToastStore";
 
-export default function JoinForm() {
+function JoinForm() {
   const navigate = useNavigate();
 
   const { showSuccess, showError } = useToastStore();
@@ -97,3 +97,5 @@ const JoinFormButtonContainer = styled("div")`
   justify-content: flex-end;
   align-items: center;
 `;
+
+export default JoinForm;

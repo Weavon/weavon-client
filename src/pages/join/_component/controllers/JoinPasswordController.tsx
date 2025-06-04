@@ -3,7 +3,7 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-export default function JoinPasswordController() {
+function JoinPasswordController() {
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -25,3 +25,5 @@ export default function JoinPasswordController() {
     />
   );
 }
+
+export default JoinPasswordController;
