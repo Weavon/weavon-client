@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import styled from "styled-components";
 
 import { LoginFormSchema } from "@/pages/login/_schema/LoginFormSchema";
 
@@ -24,20 +23,18 @@ export default function LoginPasswordController({
       name="password"
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <PasswordInput
+        <TextField
           type="password"
           placeholder="Password"
           onChange={field.onChange}
           onKeyDown={handleEnterKeyDown}
           error={!!error}
+          sx={{
+            width: "100%",
+            margin: "10px !important",
+          }}
         />
       )}
     />
   );
 }
-
-const PasswordInput = styled(TextField)`
-  width: 100%;
-
-  margin: 10px !important;
-`;

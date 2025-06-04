@@ -1,6 +1,5 @@
 import { Box, TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import styled from "styled-components";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
@@ -12,27 +11,24 @@ export default function JoinUsernameController() {
       name="username"
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <JoinUsernameContainer>
-          <UsernameInput
+        <Box
+          sx={{
+            width: "100%",
+            margin: "10px",
+            display: "flex",
+          }}
+        >
+          <TextField
             type="text"
             placeholder="Username"
             onChange={field.onChange}
             error={!!error}
+            sx={{
+              width: "100%",
+            }}
           />
-        </JoinUsernameContainer>
+        </Box>
       )}
     />
   );
 }
-
-const JoinUsernameContainer = styled(Box)`
-  width: 100%;
-
-  margin: 10px;
-
-  display: flex;
-`;
-
-const UsernameInput = styled(TextField)`
-  width: 100%;
-`;

@@ -1,5 +1,4 @@
-import { Box } from "@mui/material";
-import styled from "styled-components";
+import { styled } from "@mui/material";
 
 import useLoadingStore from "@/stores/useLoadingStore";
 
@@ -19,7 +18,7 @@ function Loading() {
   );
 }
 
-const LoadingContainer = styled(Box)`
+const LoadingContainer = styled("div")`
   width: 100vw;
   height: 100vh;
 
