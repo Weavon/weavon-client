@@ -20,6 +20,11 @@ export default tseslint.config(
       import: importPlugin,
     },
     rules: {
+      ...js.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      ...reactRefresh.configs.recommended.rules,
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error",
       "import/order": [
         "error",
         {
