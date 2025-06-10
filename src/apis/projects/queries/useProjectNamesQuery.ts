@@ -21,14 +21,14 @@ const useProjectNamesQuery = (request: ProjectNamesRequest) => {
     RestErrorResponse,
     ProjectNamesResponse[]
   >({
-    queryKey: generateQueryKey(),
+    queryKey: generateQueryKey(request),
     queryFn: projectNamesQuery,
     select: (response) => response.data.value,
   });
 };
 
-const generateQueryKey = () => {
-  return ["projects", "names"];
+const generateQueryKey = (request: ProjectNamesRequest) => {
+  return ["projects", "names", { ...request }];
 };
 
 export default useProjectNamesQuery;
