@@ -2,7 +2,7 @@ const palette = {
   primary: {
     main: "#402DAF",
   },
-  grayscele: {
+  grayscale: {
     white: "#FFFFFF",
     black: "#000000",
   },

@@ -21,7 +21,7 @@ const ProjectListContainer = styled(Select)`
   width: 500px;
   height: 25px;
 
-  border: 1px solid ${palette.grayscele.white};
+  border: 1px solid ${palette.grayscale.white};
 `;
 
 export default ProjectList;
