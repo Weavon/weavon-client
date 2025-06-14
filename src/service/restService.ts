@@ -20,4 +20,20 @@ restService.interceptors.request.use((config) => {
   return config;
 });
 
+restService.interceptors.response.use(
+  (response) => {
+    const bearerToken = response.headers["authorization"];
+
+    if (bearerToken) {
+      const accessToken = bearerToken.substring(7);
+      useAuthStore.getState().login(accessToken);
+    }
+
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+
 export default restService;
