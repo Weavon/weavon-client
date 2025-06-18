@@ -15,8 +15,8 @@ import {
 import useToastStore from "@/stores/useToastStore";
 
 function JoinForm() {
-  const navigate = useNavigate();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const { showSuccess, showError } = useToastStore();
 
@@ -45,7 +45,8 @@ function JoinForm() {
           },
           onError: (error) => {
             showError(
-              error.response?.data.value.message ?? "Joining has failed.",
+              error.response?.data.value.message ??
+                t("join.form.message.JOIN_FAILED"),
             );
           },
         },
@@ -54,10 +55,7 @@ function JoinForm() {
     (errors) => {
       const error =
         errors.username || errors.password || errors.passwordConfirm;
-      showError(
-        error?.message ??
-          "Joining has failed. Check your informations and try again.",
-      );
+      showError(error?.message ?? t("join.form.message.JOIN_FAILED_CONFIRM"));
     },
   );
 

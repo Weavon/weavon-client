@@ -8,7 +8,7 @@
     },
     "message": {
       "LOGIN_SUCCESS": "Welcome {{username}}",
-      "LOGIN_FAILED": "Login has failed. Check your informations and try again."
+      "LOGIN_FAILED": "Login has failed. Check your information and try again."
     }
   }
 }
