@@ -2,13 +2,13 @@ import { styled } from "@mui/material";
 
 import JoinForm from "@/pages/join/_components/JoinForm";
 
-function JoinPage() {
+const JoinPage = () => {
   return (
     <JoinPageContainer>
       <JoinForm />
     </JoinPageContainer>
   );
-}
+};
 
 const JoinPageContainer = styled("div")`
   display: flex;

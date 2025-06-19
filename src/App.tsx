@@ -10,7 +10,7 @@ import AppRouter from "@/routers/AppRouter";
 
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <QueryClientProvider client={QueryConfig}>
       <ThemeProvider theme={GlobalTheme}>
@@ -20,6 +20,6 @@ function App() {
       </ThemeProvider>
     </QueryClientProvider>
   );
-}
+};
 
 export default App;

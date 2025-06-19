@@ -4,7 +4,7 @@ import useAuthValidQuery from "@/apis/auth/queries/useAuthValidQuery";
 import Guard from "@/components/guard/Guard";
 import useLoadingStore from "@/stores/useLoadingStore";
 
-function AuthGuard() {
+const AuthGuard = () => {
   const { setLoading } = useLoadingStore();
 
   const {
@@ -24,6 +24,6 @@ function AuthGuard() {
       navigateTo={"/login"}
     />
   );
-}
+};
 
 export default AuthGuard;

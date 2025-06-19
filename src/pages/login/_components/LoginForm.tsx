@@ -14,7 +14,7 @@ import {
 import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
-function LoginForm() {
+const LoginForm = () => {
   const { t } = useTranslation();
 
   const { logout } = useAuthStore();
@@ -91,7 +91,7 @@ function LoginForm() {
       </LoginFormContainer>
     </FormProvider>
   );
-}
+};
 
 const LoginFormContainer = styled("div")`
   width: 300px;

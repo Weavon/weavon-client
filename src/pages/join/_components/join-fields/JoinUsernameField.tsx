@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-function JoinUsernameField() {
+const JoinUsernameField = () => {
   const { t } = useTranslation();
 
   const { control } = useFormContext<JoinFormSchema>();
@@ -34,6 +34,6 @@ function JoinUsernameField() {
       )}
     />
   );
-}
+};
 
 export default JoinUsernameField;

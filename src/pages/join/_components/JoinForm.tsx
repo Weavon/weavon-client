@@ -14,7 +14,7 @@ import {
 } from "@/pages/join/_schema/JoinFormSchema";
 import useToastStore from "@/stores/useToastStore";
 
-function JoinForm() {
+const JoinForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -77,7 +77,7 @@ function JoinForm() {
       </JoinFormContainer>
     </FormProvider>
   );
-}
+};
 
 const JoinFormContainer = styled("div")`
   width: 300px;

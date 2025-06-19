@@ -2,13 +2,13 @@ import { styled } from "@mui/material";
 
 import LoginForm from "@/pages/login/_components/LoginForm";
 
-function LoginPage() {
+const LoginPage = () => {
   return (
     <LoginPageContainer>
       <LoginForm />
     </LoginPageContainer>
   );
-}
+};
 
 const LoginPageContainer = styled("div")`
   display: flex;

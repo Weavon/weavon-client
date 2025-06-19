@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import GlobalNavigationBar from "@/components/global/GlobalNavigationBar";
 import Header from "@/components/global/Header";
 
-function PageLayout() {
+const PageLayout = () => {
   return (
     <PageWrapper>
       <PageHeaderWrapper>
@@ -18,7 +18,7 @@ function PageLayout() {
       </PageBodyWrapper>
     </PageWrapper>
   );
-}
+};
 
 const PageWrapper = styled("div")`
   width: 100vw;

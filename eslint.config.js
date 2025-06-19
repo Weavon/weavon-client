@@ -34,13 +34,6 @@ export default tseslint.config(
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "error",
       "react/react-in-jsx-scope": "off",
-      "react/function-component-definition": [
-        "error",
-        {
-          namedComponents: ["function-declaration", "function-expression"],
-          unnamedComponents: ["function-expression", "function-expression"],
-        },
-      ],
       "import/order": [
         "error",
         {

@@ -10,7 +10,7 @@ interface LoginUsernameFieldProps {
   onEnter: () => void;
 }
 
-function LoginUsernameField({ onEnter }: LoginUsernameFieldProps) {
+const LoginUsernameField = ({ onEnter }: LoginUsernameFieldProps) => {
   const { t } = useTranslation();
 
   const { control } = useFormContext<LoginFormSchema>();
@@ -40,6 +40,6 @@ function LoginUsernameField({ onEnter }: LoginUsernameFieldProps) {
       )}
     />
   );
-}
+};
 
 export default LoginUsernameField;

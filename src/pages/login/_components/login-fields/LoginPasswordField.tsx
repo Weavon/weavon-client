@@ -10,7 +10,7 @@ interface LoginPasswordFieldProps {
   onEnter: () => void;
 }
 
-function LoginPasswordField({ onEnter }: LoginPasswordFieldProps) {
+const LoginPasswordField = ({ onEnter }: LoginPasswordFieldProps) => {
   const { t } = useTranslation();
   const { control } = useFormContext<LoginFormSchema>();
 
@@ -39,6 +39,6 @@ function LoginPasswordField({ onEnter }: LoginPasswordFieldProps) {
       )}
     />
   );
-}
+};
 
 export default LoginPasswordField;

@@ -6,7 +6,7 @@ interface GuardProps {
   navigateTo: string;
 }
 
-function Guard({ render, guard, navigateTo }: GuardProps) {
+const Guard = ({ render, guard, navigateTo }: GuardProps) => {
   if (!render) return null;
 
   if (guard) {
@@ -14,6 +14,6 @@ function Guard({ render, guard, navigateTo }: GuardProps) {
   }
 
   return <Outlet />;
-}
+};
 
 export default Guard;
