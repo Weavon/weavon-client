@@ -1,11 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, styled } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import useAuthLoginMutation from "@/apis/auth/mutations/useAuthLoginMutation";
-import LoginPasswordController from "@/pages/login/_component/controllers/LoginPasswordController";
-import LoginUsernameController from "@/pages/login/_component/controllers/LoginUsernameController";
+import LoginPasswordField from "@/pages/login/_components/login-fields/LoginPasswordField";
+import LoginUsernameField from "@/pages/login/_components/login-fields/LoginUsernameField";
 import {
   LoginFormObject,
   LoginFormSchema,
@@ -14,8 +15,10 @@ import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
 function LoginForm() {
-  const { showSuccess, showError } = useToastStore();
+  const { t } = useTranslation();
+
   const { logout } = useAuthStore();
+  const { showSuccess, showError } = useToastStore();
 
   const { mutate: authLoginMutate } = useAuthLoginMutation();
 
@@ -36,12 +39,12 @@ function LoginForm() {
       },
       {
         onSuccess: () => {
-          showSuccess(`Welcome, ${username}!`);
+          showSuccess(t("login.form.message.LOGIN_SUCCESS", { username }));
           navigate("/");
         },
         onError: () => {
           logout();
-          showError("Invalid username or password. Please try again.");
+          showError(t("login.form.message.LOGIN_FAILED"));
         },
       },
     );
@@ -55,11 +58,8 @@ function LoginForm() {
       requestLogin(username, password);
     },
     (errors) => {
-      const error = errors.username || errors.password;
-      showError(
-        error?.message ??
-          "Login has failed. Check your informations and try again.",
-      );
+      const errorMessage = errors.username?.message || errors.password?.message;
+      showError(errorMessage || t("login.form.message.LOGIN_FAILED"));
     },
   );
 
@@ -78,14 +78,14 @@ function LoginForm() {
   return (
     <FormProvider {...method}>
       <LoginFormContainer>
-        <LoginUsernameController onEnter={handleEnter} />
-        <LoginPasswordController onEnter={handleEnter} />
+        <LoginUsernameField onEnter={handleEnter} />
+        <LoginPasswordField onEnter={handleEnter} />
         <LoginFormButtonContainer>
           <Button type="button" onClick={handleSignUp}>
-            Sign Up
+            {t("login.form.label.SIGN_UP")}
           </Button>
           <Button type="submit" onClick={handleSignIn}>
-            Sign In
+            {t("login.form.label.SIGN_IN")}
           </Button>
         </LoginFormButtonContainer>
       </LoginFormContainer>

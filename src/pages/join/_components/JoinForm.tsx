@@ -1,12 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, styled } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import useAuthJoinMutation from "@/apis/auth/mutations/useAuthJoinMutation";
-import JoinPasswordConfirmController from "@/pages/join/_component/controllers/JoinPasswordConfirmController";
-import JoinPasswordController from "@/pages/join/_component/controllers/JoinPasswordController";
-import JoinUsernameController from "@/pages/join/_component/controllers/JoinUsernameController";
+import JoinPasswordConfirmField from "@/pages/join/_components/join-fields/JoinPasswordConfirmField";
+import JoinPasswordField from "@/pages/join/_components/join-fields/JoinPasswordField";
+import JoinUsernameField from "@/pages/join/_components/join-fields/JoinUsernameField";
 import {
   JoinFormObject,
   JoinFormSchema,
@@ -14,6 +15,7 @@ import {
 import useToastStore from "@/stores/useToastStore";
 
 function JoinForm() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const { showSuccess, showError } = useToastStore();
@@ -43,7 +45,8 @@ function JoinForm() {
           },
           onError: (error) => {
             showError(
-              error.response?.data.value.message ?? "Joining has failed.",
+              error.response?.data.value.message ??
+                t("join.form.message.JOIN_FAILED"),
             );
           },
         },
@@ -52,10 +55,7 @@ function JoinForm() {
     (errors) => {
       const error =
         errors.username || errors.password || errors.passwordConfirm;
-      showError(
-        error?.message ??
-          "Joining has failed. Check your informations and try again.",
-      );
+      showError(error?.message ?? t("join.form.message.JOIN_FAILED_CONFIRM"));
     },
   );
 
@@ -66,12 +66,12 @@ function JoinForm() {
   return (
     <FormProvider {...method}>
       <JoinFormContainer>
-        <JoinUsernameController />
-        <JoinPasswordController />
-        <JoinPasswordConfirmController />
+        <JoinUsernameField />
+        <JoinPasswordField />
+        <JoinPasswordConfirmField />
         <JoinFormButtonContainer>
           <Button type="submit" onClick={handleSignUp}>
-            Sign Up
+            {t("join.form.label.SIGN_UP")}
           </Button>
         </JoinFormButtonContainer>
       </JoinFormContainer>

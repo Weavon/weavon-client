@@ -1,0 +1,14 @@
+{
+  "form": {
+    "label": {
+      "USERNAME": "Username",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "SIGN_UP": "Sign Up"
+    },
+    "message": {
+      "JOIN_FAILED": "Joining has failed",
+      "JOIN_FAILED_CONFIRM": "Joining has failed. Check your information and try again."
+    }
+  }
+}
