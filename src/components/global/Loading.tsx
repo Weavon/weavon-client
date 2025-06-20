@@ -2,7 +2,7 @@ import { styled } from "@mui/material";
 
 import useLoadingStore from "@/stores/useLoadingStore";
 
-function Loading() {
+const Loading = () => {
   const { isLoading } = useLoadingStore();
 
   if (!isLoading) {
@@ -16,7 +16,7 @@ function Loading() {
       </div>
     </LoadingContainer>
   );
-}
+};
 
 const LoadingContainer = styled("div")`
   width: 100vw;

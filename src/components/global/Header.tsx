@@ -7,12 +7,12 @@ import palette from "@/assets/colors/palette";
 import ProjectList from "@/components/global/ProjectList";
 import useAuthStore from "@/stores/useAuthStore";
 
-function Header() {
+const Header = () => {
+  const nav = useNavigate();
+
   const { logout } = useAuthStore();
 
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement>();
-
-  const nav = useNavigate();
 
   const menuOpen = !!menuAnchor;
 
@@ -43,7 +43,7 @@ function Header() {
       </Menu>
     </HeaderWrapper>
   );
-}
+};
 
 const HeaderWrapper = styled(Box)`
   width: 100%;

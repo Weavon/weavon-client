@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-function JoinPasswordConfirmField() {
+const JoinPasswordConfirmField = () => {
   const { t } = useTranslation();
 
   const { control } = useFormContext<JoinFormSchema>();
@@ -27,6 +27,6 @@ function JoinPasswordConfirmField() {
       )}
     />
   );
-}
+};
 
 export default JoinPasswordConfirmField;

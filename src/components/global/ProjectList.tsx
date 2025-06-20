@@ -3,8 +3,8 @@ import { MenuItem, Select, styled } from "@mui/material";
 import useProjectNamesQuery from "@/apis/projects/queries/useProjectNamesQuery";
 import palette from "@/assets/colors/palette";
 
-function ProjectList() {
-  const { data: projectNames } = useProjectNamesQuery({});
+const ProjectList = () => {
+  const { data: projectNames } = useProjectNamesQuery();
 
   return (
     <ProjectListContainer>
@@ -15,7 +15,7 @@ function ProjectList() {
       ))}
     </ProjectListContainer>
   );
-}
+};
 
 const ProjectListContainer = styled(Select)`
   width: 500px;

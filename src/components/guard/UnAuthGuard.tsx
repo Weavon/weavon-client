@@ -5,7 +5,7 @@ import Guard from "@/components/guard/Guard";
 import useAuthStore from "@/stores/useAuthStore";
 import useLoadingStore from "@/stores/useLoadingStore";
 
-function UnAuthGuard() {
+const UnAuthGuard = () => {
   const { setLoading } = useLoadingStore();
   const { logout } = useAuthStore();
 
@@ -28,6 +28,6 @@ function UnAuthGuard() {
   return (
     <Guard render={isAuthValidFetched} guard={isAuthValid} navigateTo="/" />
   );
-}
+};
 
 export default UnAuthGuard;
