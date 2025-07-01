@@ -16,10 +16,13 @@ type AuthStore = AuthState & AuthAction;
 
 const useAuthStore = create<AuthStore>()(
   persist(
-    (set) => ({
+    (set, _get, store) => ({
       accessToken: null,
       login: (token: string) => set({ accessToken: token }),
-      logout: () => set({ accessToken: null }),
+      logout: () => {
+        set({ accessToken: null });
+        store.persist.clearStorage();
+      },
     }),
     {
       name: "auth-token",
