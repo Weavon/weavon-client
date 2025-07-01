@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import encryptSessionStorage from "@/service/encryptSessionStorage";
+import encryptSessionStorage from "@/service/encryptSessionService";
 
 type AuthState = {
   accessToken: string | null;

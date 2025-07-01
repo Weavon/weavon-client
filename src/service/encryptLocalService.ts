@@ -1,6 +1,6 @@
 import { decrypt, encrypt } from "@/utils/encryptUtils";
 
-const encryptLocalStorage = {
+const encryptLocalService = {
   getItem: (name: string) => {
     const item = localStorage.getItem(name);
 
@@ -19,4 +19,4 @@ const encryptLocalStorage = {
   },
 };
 
-export default encryptLocalStorage;
+export default encryptLocalService;

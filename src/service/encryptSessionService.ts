@@ -1,6 +1,6 @@
 import { decrypt, encrypt } from "@/utils/encryptUtils";
 
-const encryptSessionStorage = {
+const encryptSessionService = {
   getItem: (name: string): string | null => {
     const item = sessionStorage.getItem(name);
 
@@ -19,4 +19,4 @@ const encryptSessionStorage = {
   },
 };
 
-export default encryptSessionStorage;
+export default encryptSessionService;
