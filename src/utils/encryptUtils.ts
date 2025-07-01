@@ -10,5 +10,5 @@ export function encrypt(plainValue: unknown): string {
 
 export function decrypt(cipherText: string): unknown {
   const plainText = CryptoJS.AES.decrypt(cipherText, CRYPTO_KEY);
-  return JSON.parse(plainText.toString());
+  return JSON.parse(plainText.toString(CryptoJS.enc.Utf8));
 }
